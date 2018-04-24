@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Post from './Post'
 import IdBar from './IdBar'
+import Skills from './Skills'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { addPosts } from '../redux/actions'
@@ -37,11 +38,17 @@ class PostList extends Component {
 
 
   render(){
-    console.log('props in postlist:', this.state)
+    console.log('props in postlist:', this.props)
     if(this.props.users){
+      // POST SORTING AND FILTERING
       let filteredPosts = this.props.post.filter(post => post.user_name === this.props.users.user_name )
       let thePosts = filteredPosts.map(post => <Post key={ post.id } post={ post } />)
       // let theUser = this.props.users.map(users => <IdBar key={ users.id} IdBar={IdBar} />)
+
+      let filteredSkills = this.props.skills.filter(skill => skill.user_name === this.props.users.user_name)
+      console.log('filteredSkills', filteredSkills)
+      let theSkills = filteredSkills.map(skills => <Skills key={skills.id} skills={skills} />)
+      console.log('theSkills', theSkills)
       return(
         <Container>
           <Col> <img style={{maxHeight: "75px"}} src={ this.props.users.avatar} /> { this.props.users.user_name }</Col>
@@ -69,8 +76,15 @@ class PostList extends Component {
             </Button>
           </Form>
         </Col>
+
+        <Col md="2">
+            <h4>Your Skills</h4>
+          <ListGroup>{ theSkills }</ListGroup>
+        </Col>
+
+        {/* POST COMPONENT AREA */}
       </Row>
-          <Col>
+          <Col md={{size: 8, offset: 2}}>
             <ListGroup>{ thePosts }</ListGroup>
 
           </Col>
@@ -91,7 +105,8 @@ class PostList extends Component {
 
   const mapStateToProps = state => ({
     post: state.post,
-    users: state.users[0]
+    users: state.users[0],
+    skills: state.skill
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList)
