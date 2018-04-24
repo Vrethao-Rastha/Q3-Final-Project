@@ -14,12 +14,12 @@ import { FETCH_SKILLS_FAILED,
       case FETCH_SKILLS_FAILED:
         return action.payload
       case ADD_SKILLS_SUCCESS:
-        return [...state, action.payload]
+        return [ action.payload]
       case ADD_SKILLS_FAILED:
         return action.payload
       case DELETE_SKILLS_SUCCESS:
         let theSkill = action.payload
-        return state.filter(skill => skill.id !== theSkill.id)
+        return state.filter(skill => skill.id !== Number(theSkill))
       case DELETE_SKILLS_FAILED:
         return action.payload
       default:

@@ -19,7 +19,7 @@ import { ListGroupItem,
    return(
         <div className="clearfix">
 
-          <ListGroupItem> <p>{ post.content } { theX }</p> </ListGroupItem>
+          <ListGroupItem style={{marginBottom: "10px"}}> <p>{ post.content } { theX }</p> </ListGroupItem>
         </div>
 
    )

@@ -10,6 +10,7 @@ import { FETCH_MESSAGES_FAILED,
   export default (state = initialState, action) => {
     switch(action.type) {
       case FETCH_MESSAGES_SUCCESS:
+      let filteredMessage = action.payload
         return [...action.payload]
       case FETCH_MESSAGES_FAILED:
         return action.payload

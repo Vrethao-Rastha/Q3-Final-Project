@@ -19,7 +19,7 @@ import { FETCH_POSTS_FAILED,
         return action.payload
       case DELETE_POSTS_SUCCESS:
         let thePost = action.payload
-        return state.filter(post => post.id !== thePost.id)
+        return state.filter(post => post.id !== Number(thePost))
       case DELETE_POSTS_FAILED:
         return action.payload
       default:
