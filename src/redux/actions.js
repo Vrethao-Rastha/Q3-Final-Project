@@ -28,6 +28,23 @@ export const ADD_PROJECTS_FAILED = 'ADD_PROJECTS_FAILED'
 export const DELETE_PROJECTS_SUCCESS = 'DELETE_PROJECTS_SUCCESS'
 export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
 
+export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
+export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
+
+  export const fetchUser = () => {
+    return dispatch => {
+      axios.get(`http://localhost:8000/users`)
+      .then(res => dispatch({
+        type: FETCH_USER_SUCCESS,
+        //temporary testing measure to get one user
+        payload: res.data.slice(0, 1)
+      }))
+      .catch(err => dispatch({
+        type: FETCH_USER_FAILED,
+        payload: err
+      }))
+    }
+  }
 
   export const fetchPosts = () => {
     return dispatch => {
@@ -44,14 +61,15 @@ export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
   }
 
   export const addPosts = (post) => {
+    console.log('post', post)
     return dispatch => {
       axios.post(`http://localhost:8000/posts`, post)
         .then(res => dispatch({
-          type: DELETE_POSTS_SUCCESS,
+          type: ADD_POSTS_SUCCESS,
           payload: res.data
         }))
         .catch(err => dispatch({
-          type: DELETE_POSTS_FAILED,
+          type: ADD_POSTS_FAILED,
           payload: err
         }))
     }
@@ -61,11 +79,11 @@ export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
     return dispatch => {
       axios.delete(`http://localhost:8000/posts/${id}`)
         .then(res => dispatch({
-          type: ADD_POSTS_SUCCESS,
+          type: DELETE_POSTS_SUCCESS,
           payload: res.data
         }))
         .catch(err => dispatch({
-          type: ADD_POSTS_FAILED,
+          type: DELETE_POSTS_FAILED,
           payload: err
         }))
     }
@@ -115,7 +133,7 @@ export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
 
   export const fetchMessages = () => {
     return dispatch => {
-      axios.get(`http://localhost:8000/messages`)
+      axios.get(`http://localhost:8000/message`)
         .then(res => dispatch({
           type: FETCH_MESSAGES_SUCCESS,
           payload: res.data

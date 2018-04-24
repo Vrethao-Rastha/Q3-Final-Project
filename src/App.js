@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Login from './components/Login'
+import PostList from './components/PostList'
 import {
   BrowserRouter as Router,
   Route,
