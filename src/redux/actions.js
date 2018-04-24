@@ -76,7 +76,9 @@ export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
   }
 
   export const removePosts = (id) => {
+    console.log('id', id)
     return dispatch => {
+      console.log('entered dispatch')
       axios.delete(`http://localhost:8000/posts/${id}`)
         .then(res => dispatch({
           type: DELETE_POSTS_SUCCESS,
