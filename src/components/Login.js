@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Row, Col, Form, FormGroup, Label, Input, Button, Navbar, NavbarBrand } from 'reactstrap'
+import { Container, Row, Col, Form, Label, Input, Navbar, NavbarBrand } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import background from '../images/art-black-and-white-contemporary-547117.jpg'
 
@@ -9,8 +9,8 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
-    marginTop: "20px",
-    marginBottom: "20px"
+    marginBottom: "20px",
+    marginTop: "20px"
   }
 
   let footerStyle = {
@@ -22,9 +22,10 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
     return(
       <div>
         <Navbar style={{marginBottom: "20px"}} color="dark">
-          <NavbarBrand className="font-face" style={{color: 'white', fontSize: "30px"}}>
+          <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
+            <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
-          <i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
+          <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
           </NavbarBrand>
         </Navbar>
         <Container>
@@ -41,7 +42,7 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
 
             <Label style={{marginLeft: "10px"}} for="password-field">Password</Label>
               <Form>
-              <Input 
+              <Input
                 type="text"
                 name="password"
                 id="password-field"
@@ -51,7 +52,8 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
         </Row>
        </Col>
 
-        <Col style={ picStyle } md="10">
+        <Col className="clearfix" style={ picStyle } md="12">
+          <h1 className="text-center blah" style={{color: "white", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}}>Welcome to Vulkans Forge</h1>
 
         </Col>
       </Container>

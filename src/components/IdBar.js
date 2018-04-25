@@ -1,16 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { ListGroupItem,
-         Input,
-         InputGroup,
-         Button
+import { Col,
+  Row
  } from 'reactstrap'
 
+
  const IdBar = ({ users }) => {
+   let userQuote = <p style={{color: 'grey'}}>{users.quote}</p>
    return(
-     <ListGroupItem> <p>{ users.avatar}, { users.user_name }, { users.quote }</p> </ListGroupItem>
+     <div>
+       <Row>
+      <img className="coolText" style={{maxHeight: "75px"}} src={ users.avatar}/> <p className="coolText">{ users.user_name }</p>  <p>{userQuote}</p>
+     </Row>
+     </div>
    )
  }
 
-export default IdBar
+ const mapStateToProps = state => ({
+   users: state.users[0]
+ })
+
+export default connect(mapStateToProps)(IdBar)

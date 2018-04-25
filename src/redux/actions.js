@@ -31,6 +31,8 @@ export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
 
+
+
   export const fetchUser = () => {
     return dispatch => {
       axios.get(`http://localhost:8000/users`)

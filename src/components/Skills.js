@@ -1,15 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { ListGroupItem,
-         Input,
-         InputGroup,
-         Button
+import { ListGroupItem
  } from 'reactstrap'
 
  const Skills = ({ skills }) => {
    return(
-     <ListGroupItem> <p>{ skills.skill }</p> </ListGroupItem>
+     <ListGroupItem> <p className="coolText">{ skills.skill }</p> </ListGroupItem>
+
    )
  }
 

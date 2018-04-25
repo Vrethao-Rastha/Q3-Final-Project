@@ -3,7 +3,26 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-.font-face {
+@font-face {
   font-family: 'RollandinEmilie';
-  src: local('RollandinEmilie'), url(./font/RollandinEmilie.ttf) format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  src: url('./font/RollandinEmilie.ttf');
+  src: local('RollandinEmilie'), local('RollandinEmilie'),
+  url(./font/RollandinEmilie.ttf) format('truetype');
+}
+.featureList {
+  margin-bottom: 20px;
+}
+.blah {
+  font-family: 'Rouge Script', cursive;
+  font-size: 100px;
+}
+.navText {
+}
+h1, h4, h5 {
+  font-family: 'Cinzel', serif;
+}
+.coolText {
+  font-family: 'Cinzel', serif;
 }
