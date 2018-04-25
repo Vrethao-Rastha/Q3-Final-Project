@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import Post from './Post'
 import IdBar from './IdBar'
 import Skills from './Skills'
+import FeatureProject from './FeatureProject'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
 import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import { connect } from 'react-redux'
@@ -17,6 +19,8 @@ import {
   Label,
   Input,
   Button,
+  NavItem,
+  NavLink,
   Navbar,
   NavbarBrand
 } from 'reactstrap'
@@ -31,11 +35,7 @@ class PostList extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-    console.log(`New message incomig! ${newMessage}`);
-  //  this.setState({message: `${newMessage}`, user_name: this.props.users.user_name})
-   this.props.addMessages(newMessage, this.props.users.user_name)
-
-    // Now send the message throught the backend API
+   this.props.addMessages(this.props.users.user_name, newMessage)
   }
 
   handleSkillSubmit = e => {
@@ -59,7 +59,7 @@ class PostList extends Component {
 
 
   render(){
-    console.log('the state:', this.state)
+    console.log('the props:', this.props)
     if(this.props.users){
       // POST SORTING AND FILTERING
       let filteredPosts = this.props.post.filter(post => post.user_name === this.props.users.user_name )
@@ -77,46 +77,50 @@ class PostList extends Component {
             Vulkans Forge
             <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
           </NavbarBrand>
+          <NavItem>
+                <Link to="/featurelist">My Projects</Link>
+              </NavItem>
         </Navbar>
         <Container>
 
+            {/* Idbar component */}
 
           <Col> <img style={{maxHeight: "75px"}} src={ this.props.users.avatar} /> { this.props.users.user_name } {userQuote}</Col>
 
-      <Row>
-        <Col md={{size: 6, offset: 2}}>
+      <Row style={{marginTop: "30px"}}>
+        <Col md="6">
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-              <Label for="content-field">New Post</Label>
+              {/* <Label for="content-field">New Post</Label> */}
               <Input
                 valid={this.state.content.length < 1 ? false : true}
-                placeholder="What's on your mind?"
+                placeholder="What are you making?"
                 type="text"
                 name="content"
                 id="content-field"
                 value={this.state.content}
-                onChange={e => this.setState({id:this.props.post.length+1, content: e.target.value })}
+                onChange={e => this.setState({id:this.props.post.length+1, content: e.target.value, user_name:this.props.users.user_name })}
               />
             </FormGroup>
             <Button
               type="submit"
               // disabled={this.Validation()}
             >
-              Submit
+              Post
             </Button>
           </Form>
         </Col>
 
         {/* Skills area */}
-        <Col md="3">
+        <Col md={{size: 3, offset: 1}}>
             <h4>Your Skills</h4>
           <ListGroup>{ theSkills }</ListGroup>
           <Form onSubmit={this.handleSkillSubmit}>
             <FormGroup>
-              <Label for="skill-field">Add a skill</Label>
+              <Label for="skill-field">Learned something new? Add it to your Skillset!</Label>
               <Input
 
-                placeholder="What's have you learned today?"
+                placeholder="What have you learned today?"
                 type="text"
                 name="skill"
                 id="skill-field"
@@ -126,9 +130,9 @@ class PostList extends Component {
             </FormGroup>
             <Button
               type="submit"
-            >
-              Submit
-            </Button>
+              >
+                Submit
+              </Button>
           </Form>
         </Col>
 
@@ -165,7 +169,8 @@ class PostList extends Component {
   const mapStateToProps = state => ({
     post: state.post,
     users: state.users[0],
-    skills: state.skill
+    skills: state.skill,
+    projects: state.projects[0]
   })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList)

@@ -60,7 +60,7 @@ export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
     }
   }
 
-  export const addPosts = (post) => {
+  export const addPosts = (post, user_name) => {
     return dispatch => {
       axios.post(`http://localhost:8000/posts`, post)
         .then(res => dispatch({
@@ -146,11 +146,12 @@ export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
     }
   }
 
-  export const addMessages = (message, user_name) => {
+  export const addMessages = (user_name, message) => {
     console.log('1st log:', message, user_name)
     return dispatch => {
       console.log('hit the dispatch')
-      axios.post(`http://localhost:8000/message/${user_name}`, message)
+      axios.post(`http://localhost:8000/message/${user_name}`, {message})
+      // .then(res => console.log('res:', res))
         .then(res => dispatch({
           type: ADD_MESSAGES_SUCCESS,
           payload: res.data
