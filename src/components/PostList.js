@@ -92,7 +92,8 @@ class PostList extends Component {
             <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
           </NavbarBrand>
           <NavItem style={{listStyleType: "none"}}>
-                <Link style={{color: 'white'}} to="/featurelist">My Projects</Link>
+                <Link style={{color: 'white', marginRight:"10px"}} to="/featurelist">My Projects</Link>
+                <Link style={{color: 'white'}} to="/"> Logout</Link>
               </NavItem>
         </Navbar>
         <Container>
@@ -114,16 +115,17 @@ class PostList extends Component {
             <FormGroup>
               <h5>Learned something new? Add it to your Skill set!</h5>
               <Input
-
+                style={{border: "1px solid black"}}
                 placeholder="What have you learned today?"
                 type="text"
                 name="skill"
                 id="skill-field"
                 value={this.state.skill}
-                onChange={e => this.setState({id:this.props.post.length+1, skill: e.target.value, user_name:this.props.users.user_name })}
+                onChange={e => this.setState({skill: e.target.value, user_name:this.props.users.user_name })}
               />
             </FormGroup>
             <Button
+              style={{border: "1px solid black"}}
               type="submit"
               >
                 Grow with us!
@@ -141,7 +143,7 @@ class PostList extends Component {
         {/* POST COMPONENT AREA */}
       </Row>
             <Col md="8">
-              <ListGroup>
+              <ListGroup  style={{paddingLeft: "0px"}}>
                 { thePosts }
               </ListGroup>
 

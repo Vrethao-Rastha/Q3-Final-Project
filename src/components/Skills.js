@@ -4,7 +4,7 @@ import { ListGroupItem
 
  const Skills = ({ skills }) => {
    return(
-     <ListGroupItem> <p className="coolText">{ skills.skill }</p> </ListGroupItem>
+     <ListGroupItem style={{border: "1px solid black"}}> <p className="coolText">{ skills.skill }</p> </ListGroupItem>
 
    )
  }

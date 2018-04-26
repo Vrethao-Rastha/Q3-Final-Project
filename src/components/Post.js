@@ -24,14 +24,14 @@ import { ListGroupItem,
       console.log('props:', this.props.post)
       let theX = <Button className="btn btn-secondary fa fa-times pull-right"
         value={this.props.post.id}
-        onClick={() => removePosts(this.props.post.id)}
+        onClick={() => this.props.removePosts(this.props.post.id)}
         ></Button>
         if(this.props.post){
           return(
-               <div className="clearfix">
+               <div style={{paddingLeft: "0px"}} className="clearfix">
 
 
-                   <ListGroupItem style={{ marginBottom: "20px"}}> { this.props.post.content } { theX } <hr/>{heart}  {this.getRandom(3,20)}  {like} {this.getRandom(3,20)}  {comment} {this.getRandom(3,20)}</ListGroupItem>
+                   <ListGroupItem style={{ marginBottom: "20px", border:"1px solid black", fontSize:"13pt"}}> { this.props.post.content } { theX } <hr/>{heart}  {this.getRandom(3,20)}  {like} {this.getRandom(3,20)}  {comment} {this.getRandom(3,20)}</ListGroupItem>
                </div>
 
           )

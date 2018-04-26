@@ -1,37 +1,44 @@
 import React from 'react'
-import { Container, Row, Col, Form, Label, Input, Navbar, NavbarBrand } from 'reactstrap'
+import { Container,
+         Row,
+         Col,
+         Form,
+         Label,
+         Input,
+         Navbar,
+         NavItem,
+         NavbarBrand } from 'reactstrap'
 import { Link } from 'react-router-dom'
 import background from '../images/art-black-and-white-contemporary-547117.jpg'
 
   let picStyle = {
-    height: "800px",
+    height: "700px",
     maxWidth: "100%",
     backgroundImage: `url(${background})`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
+    marginTop: "50px",
     marginBottom: "20px",
-    marginTop: "20px"
-  }
-
-  let footerStyle = {
-    position: "fixed",
-    bottom: "0",
+    border: "1px solid white"
   }
 
   const Login = () => {
     return(
-      <div>
+      <div style={{backgroundColor: "white"}}>
         <Navbar style={{marginBottom: "20px"}} color="dark">
           <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
             <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
           <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
           </NavbarBrand>
+          <NavItem style={{listStyleType: "none"}}>
+            <Link style={{color: 'white', marginRight:"10px"}} to="/about">About</Link>
+              </NavItem>
         </Navbar>
         <Container>
           <Col>
           <Row md="4">
-          <Label style={{marginLeft: "10px"}} for="name-field">Name</Label>
+          <Label className="btns" style={{marginRight: "30px"}} for="name-field">Name</Label>
           <Form onSubmit={this.handleSubmit}>
               <Input style={{marginRight: "10px"}}
                 type="text"
@@ -40,24 +47,24 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
               />
             </Form>
 
-            <Label style={{marginLeft: "10px"}} for="password-field">Password</Label>
+            <Label className="btns" style={{marginRight: "30px", marginLeft: "30px"}} for="password-field">Password</Label>
               <Form>
               <Input
-                type="text"
+                type="password"
                 name="password"
                 id="password-field"
               />
           </Form>
-          <Link style={{marginLeft: "10px"}} className="btn btn-primary" to="/postlist">Login</Link>
+          <Link style={{marginLeft: "30px", border: "1px solid white"}} className="btn btn-secondary" to="/postlist">Login</Link>
         </Row>
        </Col>
 
         <Col className="clearfix" style={ picStyle } md="12">
-          <h1 className="text-center blah" style={{color: "white", textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}}>Welcome to Vulkans Forge</h1>
+          <h1 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}} className="text-center blah">Vulkans Forge</h1>
 
         </Col>
       </Container>
-        <Navbar style={ {footerStyle} } color="dark">
+        <Navbar className="foot" color="dark">
           <NavbarBrand className="font-face" style={{color: "white"}}>&copy; 2018 Red Rocket Productions
 
           </NavbarBrand>

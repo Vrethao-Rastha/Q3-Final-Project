@@ -26,12 +26,13 @@ handleSubmit = e => {
 
   render(){
     return(
-      <Row style={{marginTop: "30px"}}>
+      <Row style={{marginTop: "30px", paddingLeft: "0px"}}>
         <Col>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
               <h4>Up to something? Let the world know!</h4>
               <Input
+                style={{border: "1px solid black"}}
                 valid={this.state.content.length < 1 ? false : true}
                 placeholder="What are you making?"
                 type="text"
@@ -42,6 +43,7 @@ handleSubmit = e => {
               />
             </FormGroup>
             <Button
+              style={{border: "1px solid black"}}
               type="submit"
               // disabled={this.Validation()}
             >

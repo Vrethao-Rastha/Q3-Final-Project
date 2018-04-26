@@ -31,6 +31,9 @@ export const DELETE_PROJECTS_FAILED = 'DELETE_PROJECTS_FAILED'
 export const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS'
 export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
 
+export const FETCH_ABOUT_SUCCESS = 'FETCH_ABOUT_SUCCESS'
+export const FETCH_ABOUT_FAILED = 'FETCH_ABOUT_FAILED'
+
 
 
   export const fetchUser = () => {
@@ -188,6 +191,20 @@ export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
         }))
         .catch(err => dispatch({
           type: ADD_PROJECTS_FAILED,
+          payload: err
+        }))
+    }
+  }
+
+  export const fetchAbout = () => {
+    return dispatch => {
+      axios.get(`http://localhost:8000/about`)
+        .then(res => dispatch({
+          type: FETCH_ABOUT_SUCCESS,
+          payload: res.data
+        }))
+        .catch(err => dispatch({
+          type: FETCH_ABOUT_FAILED,
           payload: err
         }))
     }

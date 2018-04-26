@@ -5,6 +5,7 @@ import FeatureProjectReducer from './FeatureProjectReducer'
 import CreateUserReducer from './CreateUserReducer'
 import MessageReducer from './MessageReducer'
 import FetchUserReducer from './FetchUserReducer'
+import AboutReducer from './AboutReducer'
 
 export default combineReducers({
   post: AddPostReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   projects: FeatureProjectReducer,
   user: CreateUserReducer,
   message: MessageReducer,
-  users: FetchUserReducer
+  users: FetchUserReducer,
+  about: AboutReducer
 })

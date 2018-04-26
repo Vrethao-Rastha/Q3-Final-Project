@@ -9,8 +9,8 @@ import { Col,
    let userQuote = <p style={{color: 'grey'}}>{users.quote}</p>
    return(
      <div>
-       <Row>
-      <img className="coolText" style={{maxHeight: "75px"}} src={ users.avatar}/> <p className="coolText">{ users.user_name }</p>  <p>{userQuote}</p>
+       <Row  style={{border: "1px solid black", marginBottom: "20px"}}>
+      <img className="coolText" style={{maxHeight: "175px"}} src={ users.avatar}/> <p style={{fontSize: "50pt", marginLeft: "20px"}} className="coolText">{ users.user_name }</p> <p className="coolText" style={{marginLeft:"50px", fontSize:"15pt"}}> Projects Completed: {users.projects_completed} Projects Collaborated: {users.projects_collaborated} <br/> Projects Consulted: {users.projects_consulted} Community Rating: {users.community_rating}</p>  <p style={{marginLeft: "20px", fontSize: "15pt"}}>{userQuote}</p>
      </Row>
      </div>
    )
