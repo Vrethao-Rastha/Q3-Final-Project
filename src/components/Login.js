@@ -24,9 +24,9 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
 
   const Login = () => {
     return(
-      <div style={{backgroundColor: "white"}}>
-        <Navbar style={{marginBottom: "20px"}} color="dark">
-          <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
+      <div>
+        <Navbar className="logNav" style={{marginBottom: "20px"}} color="dark">
+          <NavbarBrand className="coolText" style={{color: 'red', fontSize: "30px"}}>
             <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
           <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
@@ -39,7 +39,7 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
           <Col>
           <Row md="4">
           <Label className="btns" style={{marginRight: "30px"}} for="name-field">Name</Label>
-          <Form onSubmit={this.handleSubmit}>
+          <Form>
               <Input style={{marginRight: "10px"}}
                 type="text"
                 name="name"
@@ -55,7 +55,10 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
                 id="password-field"
               />
           </Form>
-          <Link style={{marginLeft: "30px", border: "1px solid white"}} className="btn btn-secondary" to="/postlist">Login</Link>
+          <Link style={{marginLeft: "30px", border: "1px solid white"}}
+            className="btn btn-secondary"
+
+             to="/postlist">Login</Link>
         </Row>
        </Col>
 

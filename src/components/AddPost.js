@@ -26,11 +26,11 @@ handleSubmit = e => {
 
   render(){
     return(
-      <Row style={{marginTop: "30px", paddingLeft: "0px"}}>
-        <Col>
+      <Row style={{marginTop: "30px", paddingLeft: "0px", backgroundColor:"black", border:"1px solid white"}}>
+        <Col style={{marginTop:"15px", marginBottom:"15px"}}>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-              <h4>Up to something? Let the world know!</h4>
+              <h4 style={{color:"white"}}>Up to something? Let the world know!</h4>
               <Input
                 style={{border: "1px solid black"}}
                 valid={this.state.content.length < 1 ? false : true}
@@ -43,7 +43,7 @@ handleSubmit = e => {
               />
             </FormGroup>
             <Button
-              style={{border: "1px solid black"}}
+              style={{border: "1px solid white"}}
               type="submit"
               // disabled={this.Validation()}
             >

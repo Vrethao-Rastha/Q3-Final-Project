@@ -15,7 +15,7 @@ import { ListGroupItem,
  let comment = <i class="fa fa-comments" aria-hidden="true"></i>
 
 
- class Post extends Component {
+ class FeaturePost extends Component {
 
    getRandom = (min, max) => {
      return Math.floor(Math.random() * (max - min)) + min;
@@ -48,4 +48,4 @@ import { ListGroupItem,
   }, dispatch)
 
 
-export default connect(null, mapDispatchToProps)(Post)
+export default connect(null, mapDispatchToProps)(FeaturePost)

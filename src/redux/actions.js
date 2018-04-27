@@ -34,6 +34,10 @@ export const FETCH_USER_FAILED = 'FETCH_USER_FAILED'
 export const FETCH_ABOUT_SUCCESS = 'FETCH_ABOUT_SUCCESS'
 export const FETCH_ABOUT_FAILED = 'FETCH_ABOUT_FAILED'
 
+export const FETCH_FEATURE_SUCCESS = 'FETCH_FEATURE_SUCCESS'
+export const FETCH_FEATURE_FAILED = 'FETCH_FEATURE_FAILED'
+
+
 
 
   export const fetchUser = () => {
@@ -42,7 +46,7 @@ export const FETCH_ABOUT_FAILED = 'FETCH_ABOUT_FAILED'
       .then(res => dispatch({
         type: FETCH_USER_SUCCESS,
         //temporary testing measure to get one user
-        payload: res.data.slice(0, 1)
+        payload: res.data.slice(1, 2)
       }))
       .catch(err => dispatch({
         type: FETCH_USER_FAILED,
@@ -152,11 +156,8 @@ export const FETCH_ABOUT_FAILED = 'FETCH_ABOUT_FAILED'
   }
 
   export const addMessages = (user_name, message) => {
-    console.log('1st log:', message, user_name)
     return dispatch => {
-      console.log('hit the dispatch')
       axios.post(`http://localhost:8000/message/${user_name}`, {message})
-      // .then(res => console.log('res:', res))
         .then(res => dispatch({
           type: ADD_MESSAGES_SUCCESS,
           payload: res.data
@@ -209,3 +210,15 @@ export const FETCH_ABOUT_FAILED = 'FETCH_ABOUT_FAILED'
         }))
     }
   }
+    export const fetchFeature = () => {
+      return dispatch => {
+        axios.get(`http://localhost:8000/feature`)
+        .then(res => dispatch({
+          type: FETCH_FEATURE_SUCCESS,
+          payload: res.data
+        }))
+        .catch(err => dispatch({
+          type: FETCH_FEATURE_FAILED,
+        }))
+      }
+    }

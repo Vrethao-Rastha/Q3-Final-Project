@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { Widget, addResponseMessage, addLinkSnippet, addUserMessage } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 import { connect } from 'react-redux'
+import background from '../images/oldKeys.jpg'
 import { addSkills, addMessages } from '../redux/actions'
 import {
   Container,
@@ -48,7 +49,7 @@ class PostList extends Component {
 
   handleNewUserMessage = (newMessage) => {
    this.props.addMessages(this.props.users.user_name, newMessage)
-   setTimeout(function(){ addResponseMessage('sure, what do you need?') }, 3000);
+   setTimeout(function(){ addResponseMessage('Sure! What do you need?') }, 3000);
   }
 
   handleSkillSubmit = e => {
@@ -62,21 +63,30 @@ class PostList extends Component {
   }
 
   render(){
-    console.log('props in otheogboe', this.props)
     if(this.props.users){
       //CHAT BOX FUNCTION, ABANODONED FOR NOW
       // let filteredMessage = this.props.message.filter(message => message.target_user === this.props.users.user_name)
       // let theMessages = filteredMessage[0].message
       // console.log('filter:', theMessages)
+
+      let picStyle = {
+        height: "1701px",
+        maxWidth: "100%",
+        backgroundImage: `url(${background})`,
+        zIndex:"-1",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        marginTop: "50px",
+        marginBottom: "20px",
+        border: "1px solid white",
+      }
+
       let heart = <i class="fa fa-gratipay" aria-hidden="true"></i>
       let like = <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
       let comment = <i class="fa fa-comments" aria-hidden="true"></i>
       // POST SORTING AND FILTERING
       let filteredPosts = this.props.posts.filter(post => post.user_name === this.props.users.user_name )
-      let thePosts = filteredPosts.map(post => {
-        console.log('a post', post)
-        return <Post key={ post.id } post={ post } />
-      })
+      let thePosts = filteredPosts.map(post => <Post key={ post.id } post={ post } /> )
       //SKILL
       let filteredSkills = this.props.skills.filter(skill => skill.user_name === this.props.users.user_name)
       let theSkills = filteredSkills.map(skills => <Skills key={skills.id} skills={skills} />)
@@ -84,9 +94,9 @@ class PostList extends Component {
 
 
       return(
-      <div>
-        <Navbar style={{marginBottom: "20px"}} color="dark">
-          <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
+      <div className="pic" style={picStyle} >
+        <Navbar style={{marginBottom: "20px", top:"0"}} color="dark">
+          <NavbarBrand className="coolText" style={{color: 'red', fontSize: "30px"}}>
             <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
             <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
@@ -108,12 +118,12 @@ class PostList extends Component {
               </Col>
 
         {/* Skills area */}
-        <Col style={{marginBottom: "20px"}} md={{size: 3, offset: 1}}>
-            <h4>My Skills</h4>
+        <Col style={{marginBottom: "20px", backgroundColor:"black", border:"1px solid white"}} md={{size: 3, offset: 1}}>
+            <h4 style={{color:"white", marginTop:"15px"}}>My Skills</h4>
           <ListGroup>{ theSkills }</ListGroup>
           <Form onSubmit={this.handleSkillSubmit}>
             <FormGroup>
-              <h5>Learned something new? Add it to your Skill set!</h5>
+              <h5 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black", color:"white"}}>Learned something new? Add it to your Skill set!</h5>
               <Input
                 style={{border: "1px solid black"}}
                 placeholder="What have you learned today?"
@@ -125,7 +135,7 @@ class PostList extends Component {
               />
             </FormGroup>
             <Button
-              style={{border: "1px solid black"}}
+              style={{border: "1px solid white", marginBottom:"15px"}}
               type="submit"
               >
                 Grow with us!
@@ -143,7 +153,7 @@ class PostList extends Component {
         {/* POST COMPONENT AREA */}
       </Row>
             <Col md="8">
-              <ListGroup  style={{paddingLeft: "0px"}}>
+              <ListGroup  style={{paddingLeft: "0px", marginLeft: "0px"}}>
                 { thePosts }
               </ListGroup>
 

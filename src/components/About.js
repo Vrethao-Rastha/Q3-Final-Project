@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom'
 import background from '../images/oldKeys.jpg'
 
   let picStyle = {
-    height: "10000px",
+    height: "100vh",
     maxWidth: "100%",
     backgroundColor: "black",
     backgroundRepeat: "no-repeat",
@@ -24,10 +24,9 @@ import background from '../images/oldKeys.jpg'
   }
 
   const About = (props) => {
-    console.log('about:', props)
     if(props.about[0]){
       return(
-        <div style={{backgroundImage: `url(${background})`, maxWidth: "100%"}}>
+        <div style={{backgroundImage: `url(${background})`,    backgroundRepeat: "noRepeatCenter", maxWidth: "100%"}}>
           <Navbar style={{marginBottom: "20px"}} color="dark">
             <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
               <i className="fa fa-wrench fa-lg fa-fw"></i>
@@ -45,7 +44,7 @@ import background from '../images/oldKeys.jpg'
 
           <Col className="clearfix" style={ picStyle } md="12">
             <h1 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}} className="text-center blah">Welcome to Vulkans Forge</h1>
-            <p className="otherText" style={{color: "white"}}>{props.about[0].about}</p>
+            <p className="otherText" style={{color: "white", paddingLeft: "20px", paddingRight: "20px", fontSize:"15pt"}}>{props.about[0].about}</p>
           </Col>
         </Container>
           <Navbar className="foot" color="dark">

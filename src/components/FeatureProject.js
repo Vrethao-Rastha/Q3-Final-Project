@@ -1,6 +1,8 @@
 import React from 'react'
+import FeaturePost from './FeaturePost'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { getRandom } from './util'
 import {
   Container,
   Col,
@@ -20,6 +22,9 @@ import {
 } from 'reactstrap'
 
 const FeatureProject = ({ projects }) => {
+
+
+
   let heart = <i class="fa fa-gratipay" aria-hidden="true"></i>
   let like = <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
   let comment = <i class="fa fa-comments" aria-hidden="true"></i>
@@ -27,7 +32,7 @@ const FeatureProject = ({ projects }) => {
     return(
       <div className="otherPage">
         <Navbar style={{marginBottom: "20px"}} color="dark">
-          <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
+          <NavbarBrand className="coolText" style={{color: 'red', fontSize: "30px"}}>
             <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
             <i class="fa fa-cog fa-spin fa-lg fa-fw"></i>
@@ -47,33 +52,32 @@ const FeatureProject = ({ projects }) => {
           <Row>
             <img src={projects.pic}></img>
             <Col md="6">
-            <ListGroup>
-            <Card>
-              <CardText className="featureList">Awesome!! Looks just like Lydia!!!</CardText>
-              <hr/>
 
-              <CardText className="featureList">{comment} 2  {heart} 3 {like} 9  </CardText>
-            </Card>
-            <Card>
-              <CardText className="featureList">For the Dovahkiin!!!</CardText>
-              <hr/>
+                <Card className="featureStuff">
+                  <CardText className="featureText">For the Dovahkiin!!!</CardText>
+                  <CardText className="featureText">{heart} {getRandom(2,30)} {like} {getRandom(2,30)} {comment} {getRandom(2,30)}</CardText>
+                </Card>
 
-              <CardText className="featureList">{comment} 0  {heart} 2 {like} 3  </CardText>
-            </Card>
-            <Card>
-              <CardText className="featureList">I used to be an adventurer like you...</CardText>
-              <hr/>
+                <Card className="featureStuff">
+                  <CardText className="featureText">Awesome!! Looks just like Lydia!!!</CardText>
+                  <CardText className="featureText">{heart} {getRandom(2,30)} {like} {getRandom(2,30)} {comment} {getRandom(2,30)}</CardText>
+                </Card>
 
-              <CardText className="featureList">{comment} 0  {heart} 0 {like} 0  </CardText>
-            </Card>
-            <Card>
-              <CardText className="featureList">I ain't stealing your sweetroll!</CardText>
-              <hr/>
+                <Card className="featureStuff">
+                  <CardText className="featureText">I used to be an adventurer like you...</CardText>
+                  <CardText className="featureText">{heart} -7 {like} 0 {comment} 0</CardText>
+                </Card>
 
-              <CardText className="featureList">{comment} 10 {heart} 8 {like} 9 </CardText>
-            </Card>
-                </ListGroup>
-                </Col>
+                <Card className="featureStuff">
+                  <CardText className="featureText">I ain't stealing your sweetroll</CardText>
+                  <CardText className="featureText">{heart} {getRandom(2,30)} {like} {getRandom(2,30)} {comment} {getRandom(2,30)}</CardText>
+                </Card>
+
+
+
+
+          </Col>
+
 
           </Row>
         </Container>
@@ -95,6 +99,8 @@ const FeatureProject = ({ projects }) => {
 }
 
   const mapStateToProps = state => ({
-    projects: state.projects[0]
+    projects: state.projects[0],
+    feature_posts: state.feature_posts,
+    users: state.users
   })
 export default connect(mapStateToProps)(FeatureProject)

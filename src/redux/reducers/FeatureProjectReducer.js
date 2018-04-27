@@ -3,7 +3,8 @@ import { FETCH_PROJECTS_FAILED,
          ADD_PROJECTS_FAILED,
          ADD_PROJECTS_SUCCESS,
          DELETE_PROJECTS_FAILED,
-         DELETE_PROJECTS_SUCCESS } from '../actions'
+         DELETE_PROJECTS_SUCCESS,
+         } from '../actions'
 
   const initialState = []
 
@@ -22,6 +23,7 @@ import { FETCH_PROJECTS_FAILED,
         return state.filter(project => project.id !== theProject.id)
       case DELETE_PROJECTS_FAILED:
         return action.payload
+      
       default:
         return state
     }
