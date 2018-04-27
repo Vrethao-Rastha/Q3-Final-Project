@@ -15,6 +15,7 @@ import { fetchPosts, fetchSkills, fetchProjects, fetchMessages, fetchUser, fetch
   newStore.dispatch(fetchMessages())
   newStore.dispatch(fetchUser())
   newStore.dispatch(fetchAbout())
+  newStore.dispatch(fetchUser())
 
 ReactDOM.render(
   <Provider store={newStore}>

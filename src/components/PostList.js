@@ -48,9 +48,20 @@ class PostList extends Component {
   }
 
   handleNewUserMessage = (newMessage) => {
-   this.props.addMessages(this.props.users.user_name, newMessage)
-   setTimeout(function(){ addResponseMessage('Sure! What do you need?') }, 3000);
+
+    // this.props.addMessages(this.props.users.user_name, newMessage)
+
+     if(newMessage.length > 15){
+      setTimeout(function(){ addResponseMessage("Yeah, I have it in my workshop somewhere") }, 3000);
+
+    }else if(newMessage.length < 15 && newMessage.length > 6){
+
+        setTimeout(function(){ addResponseMessage('Sure! What do you need?') }, 3000);
+
+    }else if(newMessage.length < 5){
+      setTimeout(function(){ addResponseMessage("I'll dig it out and bring it by") }, 3000);
   }
+}
 
   handleSkillSubmit = e => {
     e.preventDefault()

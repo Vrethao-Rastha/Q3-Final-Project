@@ -46,7 +46,7 @@ export const FETCH_FEATURE_FAILED = 'FETCH_FEATURE_FAILED'
       .then(res => dispatch({
         type: FETCH_USER_SUCCESS,
         //temporary testing measure to get one user
-        payload: res.data.slice(1, 2)
+        payload: res.data.slice(0, 1)
       }))
       .catch(err => dispatch({
         type: FETCH_USER_FAILED,
