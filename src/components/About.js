@@ -48,7 +48,8 @@ import background from '../images/oldKeys.jpg'
           </Col>
         </Container>
           <Navbar className="foot" color="dark">
-            <NavbarBrand className="font-face" style={{color: "white"}}>&copy; 2018 Red Rocket Productions
+            <NavbarBrand className="font-face" style={{color: "white"}}>&copy; 2018 Red Rocket Productions <i style={{color:"red"}} className="fa fa-rocket fa-2x"> </i>
+
 
             </NavbarBrand>
           </Navbar>
