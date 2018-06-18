@@ -64,7 +64,7 @@ class PostList extends Component {
 }
 
   handleSkillSubmit = e => {
-    e.preventDefault()
+    // e.preventDefault()
     this.props.addSkills(this.state)
   }
 
@@ -79,18 +79,6 @@ class PostList extends Component {
       // let filteredMessage = this.props.message.filter(message => message.target_user === this.props.users.user_name)
       // let theMessages = filteredMessage[0].message
       // console.log('filter:', theMessages)
-
-      // let picStyle = {
-      //   height: "1701px",
-      //   maxWidth: "100%",
-      //   backgroundImage: `url(${background})`,
-      //   zIndex:"-1",
-      //   backgroundRepeat: "no-repeat",
-      //   backgroundSize: "cover",
-      //   marginTop: "50px",
-      //   marginBottom: "20px",
-      //   border: "1px solid white",
-      // }
 
       let heart = <i class="fa fa-gratipay" aria-hidden="true"></i>
       let like = <i class="fa fa-hand-spock-o" aria-hidden="true"></i>

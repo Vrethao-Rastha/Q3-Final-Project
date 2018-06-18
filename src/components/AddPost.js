@@ -12,7 +12,7 @@ class AddPost extends Component {
     user_name: ''
   }
 handleSubmit = e => {
-    e.preventDefault()
+    // e.preventDefault()
     this.props.addPosts(this.state)
   }
 
