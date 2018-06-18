@@ -135,9 +135,9 @@ class PostList extends Component {
           <ListGroup>{ theSkills }</ListGroup>
           <Form onSubmit={this.handleSkillSubmit}>
             <FormGroup>
-              <h5>Learned something new? Add it to your Skill set!</h5>
+              <h5 style={{marginTop:".5em", marginBottom:".5em"}}>Learned something new? Add it to your Skill set!</h5>
               <Input
-                style={{border: "1px solid black"}}
+                style={{border: "1px solid black", marginBottom:".5em"}}
                 placeholder="What have you learned today?"
                 type="text"
                 name="skill"

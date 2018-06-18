@@ -27,10 +27,10 @@ import { ListGroupItem,
         ></Button>
         if(this.props.post){
           return(
-               <div style={{paddingLeft: "0px"}} className="clearfix">
+               <div style={{paddingLeft: "0px"}}>
 
 
-                   <ListGroupItem style={{ marginBottom: "20px", border:"1px solid black", fontSize:"13pt"}}> { this.props.post.content } { theX } <hr/>{heart}  {this.getRandom(0,20)}  {like} {this.getRandom(0,20)}  {comment} {this.getRandom(0,20)}</ListGroupItem>
+                   <ListGroupItem style={{marginBottom:"1em", borderRadius:"3%", boxShadow: "5px 10px #222222"}}> { this.props.post.content } { theX } <hr/>{heart}  {this.getRandom(0,20)}  {like} {this.getRandom(0,20)}  {comment} {this.getRandom(0,20)}</ListGroupItem>
                </div>
 
           )

@@ -26,11 +26,11 @@ handleSubmit = e => {
 
   render(){
     return(
-      <Row style={{marginTop: "30px", paddingLeft: "0px", backgroundColor:"black", border:"1px solid white"}}>
-        <Col style={{marginTop:"15px", marginBottom:"15px"}}>
+      <Row style={{marginTop: "5em", paddingLeft: "0px", backgroundColor:"white", borderRadius:"5%", boxShadow: "5px 10px #222222"}}>
+        <Col style={{marginTop:"1em", marginBottom:"1em"}}>
           <Form onSubmit={this.handleSubmit}>
             <FormGroup>
-              <h4 style={{color:"white"}}>Up to something? Let the world know!</h4>
+              <h4>Up to something? Let the world know!</h4>
               <Input
                 style={{border: "1px solid black"}}
                 valid={this.state.content.length < 1 ? false : true}

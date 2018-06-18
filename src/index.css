@@ -79,7 +79,14 @@ h1, h4, h5 {
 }
 .skillBox {
   margin-bottom: 5em;
+  margin-top: 2em;
   background-color: white;
   border: 1px solid white;
   border-radius: 5%;
+  box-shadow: 5px 10px #222222;
+}
+.idBar {
+  text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+  font-size: 50pt;
+  margin-left: .5em;
 }
