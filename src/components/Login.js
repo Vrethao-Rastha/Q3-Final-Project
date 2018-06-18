@@ -38,7 +38,7 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
         <Container>
           <Col>
           <Row md="4">
-          <Label className="btns" style={{marginRight: "30px"}} for="name-field">Name</Label>
+          {/* <Label className="btns" style={{marginRight: "30px"}} for="name-field">Name</Label>
           <Form>
               <Input style={{marginRight: "10px"}}
                 type="text"
@@ -54,18 +54,27 @@ import background from '../images/art-black-and-white-contemporary-547117.jpg'
                 name="password"
                 id="password-field"
               />
-          </Form>
-          <Link style={{marginLeft: "30px", border: "1px solid white"}}
-            className="btn btn-secondary"
-
-             to="/postlist">Login</Link>
+          </Form> */}
         </Row>
        </Col>
 
         <Col className="clearfix" style={ picStyle } md="12">
-          <h1 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}} className="text-center blah">Vulkans Forge</h1>
+          <h1 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black", color:"white"}} className="text-center blah">Vulkans Forge</h1>
 
         </Col>
+
+        <Row>
+          <Col md="12">
+
+            <Link className="btn btn-secondary col-md-2 offset-md-5"
+              to="/postlist">Enter</Link>
+            </Col>
+
+        </Row>
+
+
+
+
       </Container>
         <Navbar className="foot" color="dark">
           <NavbarBrand className="font-face" style={{color: "white"}}>&copy; 2018 Red Rocket Productions <i style={{color:"red"}} className="fa fa-rocket fa-2x"> </i>
