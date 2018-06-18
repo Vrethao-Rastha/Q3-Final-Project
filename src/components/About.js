@@ -12,21 +12,22 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import background from '../images/oldKeys.jpg'
 
-  let picStyle = {
-    height: "100vh",
-    maxWidth: "100%",
-    backgroundColor: "black",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    marginTop: "90px",
-    marginBottom: "20px",
-    border: "1px solid white"
-  }
+  // let picStyle = {
+  //   height: "100vh",
+  //   maxWidth: "100%",
+  //   backgroundColor: "black",
+  //   backgroundRepeat: "no-repeat",
+  //   backgroundSize: "cover",
+  //   marginTop: "90px",
+  //   marginBottom: "20px",
+  //   border: "1px solid white"
+  // }
 
   const About = (props) => {
     if(props.about[0]){
       return(
-        <div style={{backgroundImage: `url(${background})`,    backgroundRepeat: "noRepeatCenter", maxWidth: "100%"}}>
+        <div>
+          <div className="pic"></div>
           <Navbar style={{marginBottom: "20px"}} color="dark">
             <NavbarBrand className="coolText" style={{color: 'white', fontSize: "30px"}}>
               <i className="fa fa-wrench fa-lg fa-fw"></i>
@@ -42,9 +43,9 @@ import background from '../images/oldKeys.jpg'
 
          </Col>
 
-          <Col className="clearfix" style={ picStyle } md="12">
+          <Col className="clearfix" md="12">
             <h1 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black"}} className="text-center blah">Welcome to Vulkans Forge</h1>
-            <p className="otherText" style={{color: "white", paddingLeft: "20px", paddingRight: "20px", fontSize:"15pt"}}>{props.about[0].about}</p>
+            <p className="otherText" style={{paddingLeft: "20px", paddingRight: "20px" }}>{props.about[0].about}</p>
           </Col>
         </Container>
           <Navbar className="foot" color="dark">
