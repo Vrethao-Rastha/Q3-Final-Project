@@ -80,17 +80,17 @@ class PostList extends Component {
       // let theMessages = filteredMessage[0].message
       // console.log('filter:', theMessages)
 
-      let picStyle = {
-        height: "1701px",
-        maxWidth: "100%",
-        backgroundImage: `url(${background})`,
-        zIndex:"-1",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        marginTop: "50px",
-        marginBottom: "20px",
-        border: "1px solid white",
-      }
+      // let picStyle = {
+      //   height: "1701px",
+      //   maxWidth: "100%",
+      //   backgroundImage: `url(${background})`,
+      //   zIndex:"-1",
+      //   backgroundRepeat: "no-repeat",
+      //   backgroundSize: "cover",
+      //   marginTop: "50px",
+      //   marginBottom: "20px",
+      //   border: "1px solid white",
+      // }
 
       let heart = <i class="fa fa-gratipay" aria-hidden="true"></i>
       let like = <i class="fa fa-hand-spock-o" aria-hidden="true"></i>
@@ -105,15 +105,16 @@ class PostList extends Component {
 
 
       return(
-      <div className="pic" style={picStyle} >
-        <Navbar style={{marginBottom: "20px", top:"0"}} color="dark">
-          <NavbarBrand className="coolText" style={{color: 'red', fontSize: "30px"}}>
+      <div>
+        <div className="pic"></div>
+        <Navbar style={{marginBottom: "2.5em", top:"0"}} color="dark">
+          <NavbarBrand className="coolText" style={{color: 'red', fontSize: "30pt"}}>
             <i className="fa fa-wrench fa-lg fa-fw"></i>
             Vulkans Forge
             <i className="fa fa-cog fa-spin fa-lg fa-fw"></i>
           </NavbarBrand>
           <NavItem style={{listStyleType: "none"}}>
-                <Link style={{color: 'white', marginRight:"10px"}} to="/featurelist">My Projects</Link>
+                <Link style={{color: 'white', marginRight:"1em"}} to="/featurelist">My Projects</Link>
                 <Link style={{color: 'white'}} to="/"> Logout</Link>
               </NavItem>
         </Navbar>
@@ -129,12 +130,12 @@ class PostList extends Component {
               </Col>
 
         {/* Skills area */}
-        <Col style={{marginBottom: "20px", backgroundColor:"black", border:"1px solid white"}} md={{size: 3, offset: 1}}>
-            <h4 style={{color:"white", marginTop:"15px"}}>My Skills</h4>
+        <Col md={{size: 3, offset: 1}} className="skillBox">
+            <h4 style={{marginTop:".5em"}}>My Skills</h4>
           <ListGroup>{ theSkills }</ListGroup>
           <Form onSubmit={this.handleSkillSubmit}>
             <FormGroup>
-              <h5 style={{textShadow: "-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black", color:"white"}}>Learned something new? Add it to your Skill set!</h5>
+              <h5>Learned something new? Add it to your Skill set!</h5>
               <Input
                 style={{border: "1px solid black"}}
                 placeholder="What have you learned today?"
